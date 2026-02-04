@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "951198367355",
+    "project_id": "fcm-sample-app-9e995",
+    "storage_bucket": "fcm-sample-app-9e995.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951198367355:android:35b39613c9131641cd2cde",
+        "android_client_info": {
+          "package_name": "com.hemanth.fcmsample"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASJ0QFOKk1xIJ5i9uHftMn3ShmyNMgoYA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
