@@ -1,19 +1,29 @@
-package com.google.firebase.quickstart.fcm.kotlin
-
+package com.hemanth.fcmsample
 import android.content.Context
 import android.util.Log
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 
-class MyWorker(appContext: Context, workerParams: WorkerParameters) : Worker(appContext, workerParams) {
+class MyWorker(
+    context: Context,
+    params: WorkerParameters
+) : Worker(context, params) {
 
     override fun doWork(): Result {
-        Log.d(TAG, "Performing long running task in scheduled job")
-        // TODO(developer): add long running task here.
+        val title = inputData.getString("title")
+        val message = inputData.getString("message")
+
+        Log.d(TAG, "Executing long task")
+        Log.d(TAG, "Title: $title")
+        Log.d(TAG, "Message: $message")
+
+        // Simulate long work (API call, DB sync, etc.)
+        Thread.sleep(3000)
+
         return Result.success()
     }
 
     companion object {
-        private val TAG = "MyWorker"
+        private const val TAG = "MyWorker"
     }
 }
