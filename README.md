@@ -49,14 +49,6 @@ Before getting started, make sure you have:
 2. Provide the following:
    - **Package name**: Must match your app's package (e.g., `com.example.fcmsample`)
    - **App nickname**: Optional friendly name
-   - **SHA-1 certificate**: Required for certain features
-
-   > 💡 **Get SHA-1 for debug build:**
-   > ```bash
-   > keytool -list -v -alias androiddebugkey -keystore ~/.android/debug.keystore
-   > ```
-   > Default password: `android`
-
 3. Click **"Register app"**
 
 ### Step 3: Download google-services.json
@@ -91,10 +83,11 @@ Cloud Messaging is enabled by default for new Firebase projects. You can verify:
 Add the Google Services plugin to your project-level build file:
 
 ```kotlin
-buildscript {
-    dependencies {
-        classpath("com.google.gms:google-services:4.4.0")
-    }
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.compose) apply false
+    id("com.google.gms.google-services") version "4.4.4" apply false // ADD this
+
 }
 ```
 
@@ -242,14 +235,6 @@ curl -X POST https://fcm.googleapis.com/fcm/send \
 ```
 
 > 💡 **Find your Server Key**: Firebase Console → Project Settings → Cloud Messaging → Server key
-
-### Viewing Logs
-
-Use these Logcat tags to monitor FCM activity:
-- `FCM_TOKEN` - Token generation and retrieval
-- `FCM_SUBSCRIBE` - Topic subscription events  
-- `FCM_MESSAGE` - Incoming notifications
-- `FCM_PERMISSION` - Permission status
 
 ## 🔧 Troubleshooting
 
